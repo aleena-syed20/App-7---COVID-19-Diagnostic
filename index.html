@@ -1,1 +1,232 @@
+<!DOCTYPE html> 
+<html> 
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+ 
+THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+ 
+ 
+Authors in chronological order of contribution:
+Timothy Riedel
+Aleena Syed
+ 
+Further Information:
+http://diystream.cns.utexas.edu/
+
+Research Educator:
+Timothy Riedel
+triedel@utexas.edu
+ 
+Brief Description of Goal of Code:
+A diagnostic app that can evaluate a patient's symptoms and diagnose them with COVID-19. 
+ 
+Known Issues:
+
+
+-->
+
+   <head> 
+      
+	   <title>COVID-19 Diagnostic</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script> 
+	//numbers used to calculate the likelihood that the user is generally sad or depressed is stored here
+        var sad_count = 0;
+        var depressed_count = 0;
+	//increment sad count by one each time user clicks "Yes" to a question related to general sadness
+        function sadAdd(){
+            sad_count = sad_count + 1;
+		alert(sad_count);
+        }
+	
+	//increment depressed count by one each time user clicks "Yes" to a question related to depression
+        function depressedAdd(){
+            depressed_count = depressed_count + 1;
+		alert(depressed_count);
+        }
+	
+	//calculate percentages to be printed on results page
+	function results(){
+		/*percentage derived from sad count and depressed count that calculate 
+		likelihood user has general sadness or depression stored here*/
+		var sadPercent = (sad_count / (sad_count + depressed_count)) * 100;
+		var depressedPercent = (depressed_count / (sad_count + depressed_count)) * 100;
+		//calls results function and prints out sad and depressed percentage 
+		document.getElementById("results").innerHTML = "Probability it is general sadness = " + Math.round(sadPercent) + "%" + "<br> Probability it is depression = " + Math.round(depressedPercent) + "%";
+	}
+	
+	
+</script> 
+
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+/* allows image to be resized based on screen you are using */
+img, object{
+	max-height:90%;
+	max-width:90%;
+}
+
+
+</style>
+
+<body>
+<!--Writes out header-->
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Flu, cold, or COVID-19?</h1>
+</div>
+<!--Writes out purpose of app in body-->
+<div id="content" class="w3-container">
+	<p> COVID-19 is a pandemic originating in Wuhan, China in December, 2019.</p>
+	<!--after clicking on "get started" button, user will be redirected to first official page of app-->
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	<!--adds image to first page-->
+	<img src= "https://cdn.pixabay.com/photo/2014/08/08/20/55/worried-girl-413690_1280.jpg"> 
+
+<!--Creates page one-->
+<div class="page" id="one">
+	<!--Writes "Question 1" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>  
+	<div id="content" class="w3-container">
+		<!--Asks first question to user-->
+		<p>Have you been feeling sad for more than two weeks?</p>  
+		<!--after clicking on "yes" or "no", user will be redirected to second page-->
+		<a href="#two"  onclick="depressedAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#two"  onclick="sadAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to first page-->
+			<p>DIY!</p>
+		</footer>
+    	</div>
+</div>
+
+<!--Creates page two-->
+<div class="page" id="two">
+	<!--Writes "Question 2" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	<!--Asks second question to user-->
+	<div id="content" class="w3-container">
+		<p>Is your sadness triggered by a recent event in your life?</p>   
+		<!--after clicking on "yes" or "no", user will be redirected to third page-->
+		<a href="#three"  onclick="sadAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#three"  onclick="depressedAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to second page-->
+			<p>DIY!</p>
+		</footer>
+	</div>
+</div>	
+
+<!--Creates page three-->
+<div class="page" id="three">
+	<!--Writes "Question 3" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	<!--Asks third question to user-->
+	<div id="content" class="w3-container">
+		<p>Do you feel any sense of worthlessness about yourself or your life?</p>
+		<!--after clicking on "yes" or "no", user will be redirected to fourth page-->
+		<a href="#four"  onclick="depressedAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#four"  onclick="sadAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to third page-->
+			<p>DIY!</p>
+		</footer>
+	</div>	
+
+<!--Creates page four-->
+<div class="page" id="four">
+	<!--Writes "Question 4" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	<!--Asks fourth question to user-->
+	<div id="content" class="w3-container">
+		<p>Do you still find happiness in activities/hobbies you enjoy?</p>
+		<!--after clicking on "yes" or "no", user will be redirected to fifth page-->
+		<a href="#five"  onclick="sadAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#five"  onclick="depressedAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fourth page-->
+			<p>DIY!</p>
+		</footer>
+	</div>
+<!--Creates page five-->
+<div class="page" id="five">
+	<!--Writes "Question 5" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	<!--Asks fifth question to user-->
+	<div id="content" class="w3-container">
+		<p>Do you find it difficult to wake up in the morning?</p>
+		<!--after clicking on "yes" or "no", user will be redirected to sixth page-->
+		<a href="#six"  onclick="depressedAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#six"  onclick="sadAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fifth page-->
+			<p>DIY!</p>
+		</footer>
+	</div>
+<!--Creates page six-->
+<div class="page" id="six">
+	<!--Writes "Question 6" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	<!--Asks sixth question to user-->
+	<div id="content" class="w3-container">
+		<p>Have you noticed yourself feeling less sad as time goes on?</p>
+		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
+		<a href="#seven"  onclick="sadAdd(); results();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#seven"  onclick="depressedAdd(); results();" class="w3-btn w3-black">No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
+			<p>DIY!</p>
+		</footer>
+	</div>
+
+<!--Creates page seven-->
+<div class="page" id="seven">
+	<!--Writes "Results" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Results</h1>
+	</div>
+<!--Calls results function to print out sad and depressed percentages based on user input-->
+<div id="results" class="w3-container">
+	</div>
+	
+<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to results page-->
+	<p>DIY!</p>
+</footer>
+	   
+</body>
+</html>
 
