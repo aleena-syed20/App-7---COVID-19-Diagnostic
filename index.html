@@ -72,8 +72,8 @@ Known Issues:
 		var allergyPercent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		
 		//calls results function and prints out sad and depressed percentage 
-		document.getElementById("results").innerHTML = "Probability you have COVID-19 = 
-			" + Math.round(covidPercent) + "%" + 
+		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + 
+			Math.round(covidPercent) + "%" + 
 			"<br> Probability you have a cold = " + Math.round(coldPercent) + "%" + 
 			"<br> Probability you have the flu = " + Math.round(fluPercent) + "%" + 
 			"<br> Probability you have allergies = " + Math.round(allergyPercent) + "%";
