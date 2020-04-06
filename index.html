@@ -72,7 +72,8 @@ Known Issues:
 		var allergyPercent = allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		
 		//calls results function and prints out sad and depressed percentage 
-		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + Math.round(covidPercent) + "%" + 
+		document.getElementById("results").innerHTML = "Probability you have COVID-19 = 
+			" + Math.round(covidPercent) + "%" + 
 			"<br> Probability you have a cold = " + Math.round(coldPercent) + "%" + 
 			"<br> Probability you have the flu = " + Math.round(fluPercent) + "%" + 
 			"<br> Probability you have allergies = " + Math.round(allergyPercent) + "%";
@@ -159,12 +160,14 @@ img, object{
 	</div>
 	<!--Asks second question to user-->
 	<div id="content" class="w3-container">
-		<p>Is your sadness triggered by a recent event in your life?</p>   
+		<p>If you have a cough, how would you describe it?</p>   
 		<!--after clicking on "yes" or "no", user will be redirected to third page-->
-		<a href="#three"  onclick="sadAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#three"  onclick="depressedAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<a href="#three"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Dry cough</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Mild cough</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<!--<a href="#three"  onclick="fluAdd();" class="w3-btn w3-black"> Dry cough</a>-->
+		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> No cough</a>
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to second page-->
-			<p>DIY!</p>
+			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>
 </div>	
