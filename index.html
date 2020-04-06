@@ -35,29 +35,47 @@ Known Issues:
 
 
 <script> 
-	//numbers used to calculate the likelihood that the user is generally sad or depressed is stored here
-        var sad_count = 0;
-        var depressed_count = 0;
-	//increment sad count by one each time user clicks "Yes" to a question related to general sadness
-        function sadAdd(){
-            sad_count = sad_count + 1;
-		alert(sad_count);
+	//numbers used to calculate the likelihood that the user has COVID-19, cold, flu, or allergies
+        var covid_count = 0;
+        var cold_count = 0;
+	var flu_count = 0;
+	var allergy_count = 0;
+	//increment covid count by one each time user clicks "Yes" to a question related to symptoms for COVID-19
+        function covidAdd(){
+            covid_count = covid_count + 1;
+		alert(covid_count);
         }
 	
-	//increment depressed count by one each time user clicks "Yes" to a question related to depression
-        function depressedAdd(){
-            depressed_count = depressed_count + 1;
-		alert(depressed_count);
+	//increment cold count by one each time user clicks "Yes" to a question related to symtpoms for colds
+        function coldAdd(){
+            cold_count = cold_count + 1;
+		alert(cold_count);
+        }
+	
+	function fluAdd() {
+		flu_count = flu_count + 1;
+		alert(flu_count);
+        }
+	
+	function allergyAdd() {
+		allergy_count = allergy_count + 1;
+		alert(allergy_count);
         }
 	
 	//calculate percentages to be printed on results page
 	function results(){
-		/*percentage derived from sad count and depressed count that calculate 
-		likelihood user has general sadness or depression stored here*/
-		var sadPercent = (sad_count / (sad_count + depressed_count)) * 100;
-		var depressedPercent = (depressed_count / (sad_count + depressed_count)) * 100;
+		/*percentage derived from covid, cold, flu and allergy count that calculate 
+		likelihood user has the illness*/
+		var covidPercent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var coldPercent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var fluPercent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var allergyPercent = allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		
 		//calls results function and prints out sad and depressed percentage 
-		document.getElementById("results").innerHTML = "Probability it is general sadness = " + Math.round(sadPercent) + "%" + "<br> Probability it is depression = " + Math.round(depressedPercent) + "%";
+		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + Math.round(covidPercent) + "%" + 
+			"<br> Probability you have a cold = " + Math.round(coldPercent) + "%" + 
+			"<br> Probability you have the flu = " + Math.round(fluPercent) + "%" + 
+			"<br> Probability you have allergies = " + Math.round(allergyPercent) + "%";
 	}
 	
 	
@@ -87,8 +105,8 @@ Known Issues:
 }
 /* allows image to be resized based on screen you are using */
 img, object{
-	max-height:90%;
-	max-width:90%;
+	max-height:60%;
+	max-width:60%;
 }
 
 
@@ -97,11 +115,12 @@ img, object{
 <body>
 <!--Writes out header-->
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Flu, cold, or COVID-19?</h1>
+	<h1>Flu, cold, allergies, or COVID-19?</h1>
 </div>
 <!--Writes out purpose of app in body-->
 <div id="content" class="w3-container">
-	<p> COVID-19 is a pandemic originating in Wuhan, China in December, 2019.</p>
+	<p> COVID-19 is a pandemic originating in Wuhan, China in December, 2019. The AAFA has compiled a list of symptoms
+	that correspond to a cold, flu, allergies, or COVID-19. </p>
 	<!--after clicking on "get started" button, user will be redirected to first official page of app-->
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -119,12 +138,14 @@ img, object{
 	</div>  
 	<div id="content" class="w3-container">
 		<!--Asks first question to user-->
-		<p>Have you been feeling sad for more than two weeks?</p>  
+		<p>How long have you been experiencing symptoms?</p>  
 		<!--after clicking on "yes" or "no", user will be redirected to second page-->
-		<a href="#two"  onclick="depressedAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#two"  onclick="sadAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black"> 7-25 days</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">less than 14 days</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to first page-->
-			<p>DIY!</p>
+			<p>COVID-19 Diagnostic</p>
 		</footer>
     	</div>
 </div>
