@@ -69,7 +69,7 @@ Known Issues:
 		var covidPercent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		var coldPercent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		var fluPercent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var allergyPercent = allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var allergyPercent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		
 		//calls results function and prints out sad and depressed percentage 
 		document.getElementById("results").innerHTML = "Probability you have COVID-19 = 
