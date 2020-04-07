@@ -265,15 +265,15 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you experienced lethargy/tiredness?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#nine"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, I've been feeling weak.</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd(); results();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#nine"  onclick="coldAdd(); allergyAdd(); results();" class="w3-btn w3-black"> Yes, I've been feeling weak.</a> <!--adds 1 to depressed count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>
 
-<!--Creates page seven-->
-<div class="page" id="seven">
+<!--Creates page nine-->
+<div class="page" id="nine">
 	<!--Writes "Results" in header-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
@@ -283,7 +283,7 @@ img, object{
 	</div>
 	
 <footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to results page-->
-	<p>DIY!</p>
+	<p>COVID-19 Diagnostic</p>
 </footer>
 	   
 </body>
