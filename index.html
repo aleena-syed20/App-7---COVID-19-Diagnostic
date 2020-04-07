@@ -185,7 +185,7 @@ img, object{
 		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
          	<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to sad count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to third page-->
-			<p>DIY!</p>
+			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>	
 
@@ -197,12 +197,12 @@ img, object{
 	</div>
 	<!--Asks fourth question to user-->
 	<div id="content" class="w3-container">
-		<p>Do you still find happiness in activities/hobbies you enjoy?</p>
+		<p>Have you been sneezing?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to fifth page-->
-		<a href="#five"  onclick="sadAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#five"  onclick="depressedAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#five"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to depressed count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fourth page-->
-			<p>DIY!</p>
+			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>
 <!--Creates page five-->
@@ -213,12 +213,12 @@ img, object{
 	</div>
 	<!--Asks fifth question to user-->
 	<div id="content" class="w3-container">
-		<p>Do you find it difficult to wake up in the morning?</p>
+		<p>Do you have a runny or stuffy nose?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to sixth page-->
-		<a href="#six"  onclick="depressedAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#six"  onclick="sadAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<a href="#six"  onclick="coldAdd(); allergyAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
+         	<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fifth page-->
-			<p>DIY!</p>
+			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>
 <!--Creates page six-->
@@ -229,12 +229,12 @@ img, object{
 	</div>
 	<!--Asks sixth question to user-->
 	<div id="content" class="w3-container">
-		<p>Have you noticed yourself feeling less sad as time goes on?</p>
+		<p>Have you had a sore throat?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#seven"  onclick="sadAdd(); results();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#seven"  onclick="depressedAdd(); results();" class="w3-btn w3-black">No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#seven"  onclick="covidAdd(); coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#seven"  onclick="" class="w3-btn w3-black"> No</a> <!--adds 1 to depressed count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
-			<p>DIY!</p>
+			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>
 
