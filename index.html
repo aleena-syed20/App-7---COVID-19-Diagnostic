@@ -237,6 +237,40 @@ img, object{
 			<p>COVID-19 Diagnostic</p>
 		</footer>
 	</div>
+	
+<!--Creates page seven-->
+<div class="page" id="seven">
+	<!--Writes "Question 7" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 7</h1>
+	</div>
+	<!--Asks seventh question to user-->
+	<div id="content" class="w3-container">
+		<p>Have you had a fever?</p>
+		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
+		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#eight"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
+			<p>COVID-19 Diagnostic</p>
+		</footer>
+	</div>
+
+<!--Creates page eight-->
+<div class="page" id="eight">
+	<!--Writes "Question 8" in header-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 8</h1>
+	</div>
+	<!--Asks eighth question to user-->
+	<div id="content" class="w3-container">
+		<p>Have you experienced lethargy/tiredness?</p>
+		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
+		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to sad count if user clicks "yes"-->
+         	<a href="#nine"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, I've been feeling weak.</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
+			<p>COVID-19 Diagnostic</p>
+		</footer>
+	</div>
 
 <!--Creates page seven-->
 <div class="page" id="seven">
