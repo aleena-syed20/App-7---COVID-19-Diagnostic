@@ -77,9 +77,40 @@ Known Issues:
 			"<br> Probability you have a cold = " + Math.round(coldPercent) + "%" + 
 			"<br> Probability you have the flu = " + Math.round(fluPercent) + "%" + 
 			"<br> Probability you have allergies = " + Math.round(allergyPercent) + "%";
-	}
-	
-	
+		<head> 
+			<title> JavaScript Pie Chart </title>
+			<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+        		<script src"="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+  		</head>
+  		<body>
+   			<div id="container" style="width: 100%; height: 100%"></div>
+   		<script>
+		anychart.onDocumentReady(function() {
+
+  		// set the data
+  		var data = [
+     		{x: "COVID-19", value: covidPercent},
+      		{x: "Flu", value: fluPercent},
+      	 	{x: "Cold", value: coldPercent},
+      		{x: "Allergy", value: allergyPercent}
+ 		];
+
+  		// create the chart
+  		var chart = anychart.pie();
+
+  		// set the chart title
+  		chart.title("Likelihood of specific illness.");
+
+  		// add the data
+  		chart.data(data);
+
+  		// display the chart in the container
+  		chart.container('container');
+  		chart.draw();
+
+	});
+	  </script>
+	</body>	
 </script> 
 
 
@@ -331,41 +362,6 @@ img, object{
 <!--Calls results function to print out sad and depressed percentages based on user input-->
 <div id="results" class="w3-container">
 	</div>
-
-<head> 
-	<title> JavaScript Pie Chart </title>
-	<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
-        <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
-  </head>
-  <body>
-    <div id="container" style="width: 100%; height: 100%"></div>
-    <script>
-anychart.onDocumentReady(function() {
-
-  // set the data
-  var data = [
-      {x: "COVID-19", value: 20},
-      {x: "Flu", value: 10},
-      {x: "Cold", value: 15},
-      {x: "Allergy", value: 13}
-  ];
-
-  // create the chart
-  var chart = anychart.pie();
-
-  // set the chart title
-  chart.title("Likelihood of specific illness.");
-
-  // add the data
-  chart.data(data);
-
-  // display the chart in the container
-  chart.container('container');
-  chart.draw();
-
-});
-	  </script>
-	</body>
 <footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to results page-->
 	<p>COVID-19 Diagnostic</p>
 </footer>
