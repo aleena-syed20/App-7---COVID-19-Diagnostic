@@ -40,10 +40,10 @@ Known Issues:
         var cold_count = 0;
 	var flu_count = 0;
 	var allergy_count = 0;
-	var covid_percent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-	var cold_percent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-	var flu_percent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-	var allergy_percent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+	var covid_percent;
+	var cold_percent;
+	var flu_percent;
+	var allergy_percent;
 	//increment covid count by one each time user clicks "Yes" to a question related to symptoms for COVID-19
         function covidAdd(){
             covid_count = covid_count + 1;
@@ -65,18 +65,14 @@ Known Issues:
 		allergy_count = allergy_count + 1;
 		//alert(allergy_count);
         }
-	/*var covidPercent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var coldPercent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var fluPercent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var allergyPercent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100; */
 	//calculate percentages to be printed on results page
 	function results(){
-		/*percentage derived from covid, cold, flu and allergy count that calculate 
-		likelihood user has the illness*/
-		/*var covidPercent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var coldPercent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var fluPercent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		var allergyPercent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100; */
+		percentage derived from covid, cold, flu and allergy count that calculate 
+		likelihood user has the illness
+		covid_percent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		cold_percent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		flu_percent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		allergy_percent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		
 		//calls results function and prints out sad and depressed percentage 
 		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + 
