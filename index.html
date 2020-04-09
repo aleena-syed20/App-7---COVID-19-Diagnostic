@@ -76,6 +76,7 @@ Known Issues:
 			"<br> Probability you have a cold = " + Math.round(cold_percent) + "%" + 
 			"<br> Probability you have the flu = " + Math.round(flu_percent) + "%" + 
 			"<br> Probability you have allergies = " + Math.round(allergy_percent) + "%";
+		function PieChart(covid_percent, cold_percent, flu_percent, allergy_percent);
 	}
 	
 </script> 
@@ -338,14 +339,14 @@ img, object{
   <body>
     <div id="container" style="width: 100%; height: 100%"></div>
     <script>
-        anychart.onDocumentReady(function() {
+        anychart.onDocumentReady(function PieChart(covid_percent, cold_percent, flu_percent, allergy_percent) {
 
   // set the data
   var data = [
-      {x: "COVID-19", value: results()},
-      {x: "Flu", value: results()},
-      {x: "Cold", value: results()},
-      {x: "Allergies", value: results()},
+      {x: "COVID-19", value: covid_percent},
+      {x: "Flu", value: flu_percent},
+      {x: "Cold", value: cold_percent},
+      {x: "Allergies", value: allergy_percent},
   ];
 
   // create the chart
