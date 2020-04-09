@@ -66,10 +66,10 @@ Known Issues:
 	function results(){
 		/*percentage derived from covid, cold, flu and allergy count that calculate 
 		likelihood user has the illness */
-		covid_percent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		cold_percent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		flu_percent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		allergy_percent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var covid_percent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var cold_percent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var flu_percent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+		var allergy_percent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		
 		//calls results function and prints out sad and depressed percentage 
 		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + 
@@ -77,8 +77,43 @@ Known Issues:
 			"<br> Probability you have a cold = " + Math.round(cold_percent) + "%" + 
 			"<br> Probability you have the flu = " + Math.round(flu_percent) + "%" + 
 			"<br> Probability you have allergies = " + Math.round(allergy_percent) + "%";
-	}
+		function pieChart(covid_percent, cold_percent, flu_percent, allergy_percent) {
+			<head>
+      				<title>JavaScript Pie Chart</title>
+      				<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+     				 <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+  			</head>
+ 			 <body>
+  			  <div id="container" style="width: 100%; height: 100%"></div>
+    			<script>
+       				anychart.onDocumentReady(function() {
 
+  			// set the data
+ 			var data = [
+   			{x: "covid-19", value: covid_percent},
+      			{x: "flu", value: flu_percent},
+      			{x: "cold", value: cold_percent},
+      			{x: "allergy", value: allergy_percent},
+  			];
+
+  			// create the chart
+  			var chart = anychart.pie();
+
+  			// set the chart title
+  			chart.title("Population by Race for the United States: 2010 Census");
+
+ 			 // add the data
+ 			 chart.data(data);
+
+  			// display the chart in the container
+  			chart.container('container');
+  			chart.draw();
+
+			});
+   			 </script>
+  			</body>
+		}
+	}	
 </script> 
 
 
