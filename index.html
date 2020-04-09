@@ -345,11 +345,16 @@ img, object{
         anychart.onDocumentReady(function() {
 
   // set the data
-  var data = [
-      {x: "COVID-19", value: covid_percent},
-      {x: "Flu", value: flu_percent},
-      {x: "Cold", value: cold_percent},
-      {x: "Allergies", value: allergy_percent},
+  var covid = covid_percent;
+  var flu = flu_percent;
+  var cold = cold_percent;
+  var allergy = allergy_percent;
+	
+      var data = [
+      {x: "COVID-19", value: covid},
+      {x: "Flu", value: flu},
+      {x: "Cold", value: cold},
+      {x: "Allergies", value: allergy},
   ];
 
   // create the chart
