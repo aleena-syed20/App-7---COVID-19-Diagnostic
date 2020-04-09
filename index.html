@@ -70,50 +70,55 @@ Known Issues:
 		var cold_percent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		var flu_percent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		var allergy_percent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
+<head>
+<script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Desktop Search Engine Market Share - 2016"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: 79.45, label: "Google"},
+			{y: 7.31, label: "Bing"},
+			{y: 7.06, label: "Baidu"},
+			{y: 4.91, label: "Yahoo"},
+			{y: 1.26, label: "Others"}
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
 		
-		//calls results function and prints out sad and depressed percentage 
+	}
+	
+	
+	
+	
+	
+	
+		<!--calls results function and prints out sad and depressed percentage 
 		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + 
 			Math.round(covid_percent) + "%" + 
 			"<br> Probability you have a cold = " + Math.round(cold_percent) + "%" + 
 			"<br> Probability you have the flu = " + Math.round(flu_percent) + "%" + 
-			"<br> Probability you have allergies = " + Math.round(allergy_percent) + "%";
-		function pieChart(covid_percent, cold_percent, flu_percent, allergy_percent) {
-			<head>
-      				<title>JavaScript Pie Chart</title>
-      				<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
-     				 <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
-  			</head>
- 			 <body>
-  			  <div id="container" style="width: 100%; height: 100%"></div>
-    			<script>
-       				anychart.onDocumentReady(function() {
-
-  			// set the data
- 			var data = [
-   			{x: "covid-19", value: covid_percent},
-      			{x: "flu", value: flu_percent},
-      			{x: "cold", value: cold_percent},
-      			{x: "allergy", value: allergy_percent},
-  			];
-
-  			// create the chart
-  			var chart = anychart.pie();
-
-  			// set the chart title
-  			chart.title("Population by Race for the United States: 2010 Census");
-
- 			 // add the data
- 			 chart.data(data);
-
-  			// display the chart in the container
-  			chart.container('container');
-  			chart.draw();
-
-			});
-   			 </script>
-  			</body>
-		}
-	}	
+			"<br> Probability you have allergies = " + Math.round(allergy_percent) + "%"; -->
+	
+		
+ 			
 </script> 
 
 
