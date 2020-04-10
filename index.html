@@ -20,7 +20,7 @@ Brief Description of Goal of Code:
 A diagnostic app that can evaluate a patient's symptoms and diagnose them with COVID-19. 
  
 Known Issues:
-
+Pie chart won't print unless explicit integers are stored in data.
 
 -->
 
@@ -52,29 +52,29 @@ Known Issues:
             cold_count = cold_count + 1;
 		//alert(cold_count);
         }
-	
+	//increment flu count by one each time user clicks "Yes" to a question related to symtpoms for flus
 	function fluAdd() {
 		flu_count = flu_count + 1;
 		//alert(flu_count);
         }
-	
+	//increment allergy count by one each time user clicks "Yes" to a question related to symtpoms for allergies
 	function allergyAdd() {
 		allergy_count = allergy_count + 1;
 		//alert(allergy_count);
         }
+	//initialize variables that will store illness percentages
 	var covid_percent;
-		var cold_percent;
-		var flu_percent;
-		var allergy_percent;
+	var cold_percent;
+	var flu_percent;
+	var allergy_percent;
+	
 	//calculate percentages to be printed on results page
 	function results(){
-		/*percentage derived from covid, cold, flu and allergy count that calculate 
-		likelihood user has the illness */
 		covid_percent = (covid_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		cold_percent = (cold_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		flu_percent = (flu_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
 		allergy_percent = (allergy_count / (covid_count + cold_count + flu_count + allergy_count)) * 100;
-		//calls results function and prints out sad and depressed percentage 
+		//calls results function and prints out each illness percentage 
 		document.getElementById("results").innerHTML = "Probability you have COVID-19 = " + 
 			Math.round(covid_percent) + "%" + 
 			"<br> Probability you have a cold = " + Math.round(cold_percent) + "%" + 
@@ -144,10 +144,10 @@ img, object{
 		<!--Asks first question to user-->
 		<p>How long have you been experiencing symptoms?</p>  
 		<!--after clicking on "yes" or "no", user will be redirected to second page-->
-		<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black"> 7-25 days</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">less than 14 days</a> <!--adds 1 to sad count if user clicks "yes"-->
-		<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+		<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black"> 7-25 days</a> <!--adds 1 to covid count if user clicks "yes"-->
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">less than 14 days</a> <!--adds 1 to cold count if user clicks "yes"-->
+		<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a> <!--adds 1 to flu count if user clicks "yes"-->
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a> <!--adds 1 to allergy count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to first page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -164,10 +164,9 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>If you have a cough, how would you describe it?</p>   
 		<!--after clicking on "yes" or "no", user will be redirected to third page-->
-		<a href="#three"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Dry cough</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Mild cough</a> <!--adds 1 to sad count if user clicks "yes"-->
-		<!--<a href="#three"  onclick="fluAdd();" class="w3-btn w3-black"> Dry cough</a>-->
-		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> No cough</a>
+		<a href="#three"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Dry cough</a> <!--adds 1 to covid and flu count if user clicks "yes"-->
+         	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Mild cough</a> <!--adds 1 to cold count if user clicks "yes"-->
+		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> No cough</a> <!--adds 1 to allergy count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to second page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -184,8 +183,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you experienced shortness of breath?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to fourth page-->
-		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to covid count if user clicks "yes"-->
+         	<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to cold, flu, and allergy count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to third page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -201,8 +200,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you been sneezing?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to fifth page-->
-		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#five"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to cold and allergy count if user clicks "yes"-->
+         	<a href="#five"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to covid and flu count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fourth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -217,8 +216,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Do you have a runny or stuffy nose?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to sixth page-->
-		<a href="#six"  onclick="coldAdd(); allergyAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to depressed count if user clicks "yes"-->
-         	<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to sad count if user clicks "yes"-->
+		<a href="#six"  onclick="coldAdd(); allergyAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to cold, allergy, and flu counts if user clicks "yes"-->
+         	<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to covid count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fifth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -233,8 +232,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you had a sore throat?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#seven"  onclick="covidAdd(); coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#seven"  onclick="" class="w3-btn w3-black"> No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#seven"  onclick="covidAdd(); coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to covid, cold, allergy, and flu counts if user clicks "yes"-->
+         	<a href="#seven"  onclick="" class="w3-btn w3-black"> No</a> 
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -250,8 +249,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you had a fever?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#eight"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to covid and flu count if user clicks "yes"-->
+         	<a href="#eight"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to cold and allergy count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -267,8 +266,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you experienced lethargy/tiredness?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#nine"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, I've been feeling weak.</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to covid, cold, and allergy count if user clicks "yes"-->
+         	<a href="#nine"  onclick="fluAdd();" class="w3-btn w3-black"> Yes, I've been feeling weak.</a> <!--adds 1 to flu count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -284,8 +283,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you had any headaches?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#ten"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes.</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#ten"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No.</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#ten"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes.</a> <!--adds 1 to covid and flu counts if user clicks "yes"-->
+         	<a href="#ten"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No.</a> <!--adds 1 to cold and allergy counts if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -301,8 +300,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you had body aches or pains?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#eleven"  onclick="covidAdd(); fluAdd(); coldAdd();" class="w3-btn w3-black"> Yes.</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black"> No.</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#eleven"  onclick="covidAdd(); fluAdd(); coldAdd();" class="w3-btn w3-black"> Yes.</a> <!--adds 1 to covid, flu, and cold counts if user clicks "yes"-->
+         	<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black"> No.</a> <!--adds 1 to allergy count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -318,8 +317,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you had diarrhea?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#twelve"  onclick="covidAdd(); results();" class="w3-btn w3-black"> Yes.</a> <!--adds 1 to sad count if user clicks "yes"-->
-         	<a href="#twelve"  onclick="coldAdd(); fluAdd(); allergyAdd(); results();" class="w3-btn w3-black"> No.</a> <!--adds 1 to depressed count if user clicks "yes"-->
+		<a href="#twelve"  onclick="covidAdd(); results();" class="w3-btn w3-black"> Yes.</a> <!--adds 1 to covid count if user clicks "yes" and calls results-->
+         	<a href="#twelve"  onclick="coldAdd(); fluAdd(); allergyAdd(); results();" class="w3-btn w3-black"> No.</a> <!--adds 1 to cold, flu, and allergy counts if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -336,7 +335,7 @@ img, object{
  
 <head>
       <title>JavaScript Pie Chart</title>
-      <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+      <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script> 
       <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
   </head>
   <body>
