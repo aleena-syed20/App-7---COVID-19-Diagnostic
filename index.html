@@ -343,15 +343,18 @@ img, object{
     <div id="container" style="width: 100%; height: 100%"></div>
     <script>
         anychart.onDocumentReady(function() {
-
+<?php  
+	$players = covid_percent;
+	
+?>
   // set the data
-  var covid = covid_percent;
+  /*var covid = covid_percent;
   var flu = flu_percent;
   var cold = cold_percent;
-  var allergy = allergy_percent;
+  var allergy = allergy_percent; */
 	
       var data = [
-      {x: "COVID-19", value: covid},
+      {x: "COVID-19", value: <?php echo $players; ?>},
       {x: "Flu", value: flu},
       {x: "Cold", value: cold},
       {x: "Allergies", value: allergy},
