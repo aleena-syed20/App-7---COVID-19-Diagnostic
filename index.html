@@ -342,15 +342,15 @@ img, object{
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     covid_count + 1],
-          ['Eat',      flu_count],
-          ['Commute',  cold_count],
-          ['Watch TV', allergy_count],
+          ['Illness', 'Likelihood'],
+          ['COVID-19',     covid_count + 1],
+          ['Flu',      flu_count],
+          ['Cold',  cold_count],
+          ['Allergies' , allergy_count],
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          title: 'Likelihood of Covid, cold, flu, or allergies'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
