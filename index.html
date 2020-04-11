@@ -108,8 +108,8 @@ Pie chart won't print unless explicit integers are stored in data.
 }
 /* allows image to be resized based on screen you are using */
 img, object{
-	max-height:60%;
-	max-width:60%;
+	max-height:50%;
+	max-width:50%;
 }
 
 
@@ -132,7 +132,7 @@ img, object{
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 	<!--adds image to first page-->
-	<img src= "https://cdn.pixabay.com/photo/2014/08/08/20/55/worried-girl-413690_1280.jpg"> 
+	<img src= "https://www.economist.com/img/b/1280/720/85/sites/default/files/images/print-edition/20200222_IRD001_0.jpg"> 
 
 <!--Creates page one-->
 <div class="page" id="one">
@@ -184,7 +184,7 @@ img, object{
 		<p>Have you experienced shortness of breath?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to fourth page-->
 		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to covid count if user clicks "yes"-->
-         	<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to cold, flu, and allergy count if user clicks "yes"-->
+         	<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to cold, flu, and allergy counts if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to third page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -200,7 +200,7 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you been sneezing?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to fifth page-->
-		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to cold and allergy count if user clicks "yes"-->
+		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to cold and allergy counts if user clicks "yes"-->
          	<a href="#five"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black">No</a> <!--adds 1 to covid and flu count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to fourth page-->
 			<p>COVID-19 Diagnostic</p>
@@ -249,8 +249,8 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you had a fever?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to covid and flu count if user clicks "yes"-->
-         	<a href="#eight"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to cold and allergy count if user clicks "yes"-->
+		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Yes</a> <!--adds 1 to covid and flu counts if user clicks "yes"-->
+         	<a href="#eight"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No</a> <!--adds 1 to cold and allergy counts if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
 		</footer>
@@ -266,7 +266,7 @@ img, object{
 	<div id="content" class="w3-container">
 		<p>Have you experienced lethargy/tiredness?</p>
 		<!--after clicking on "yes" or "no", user will be redirected to seventh page-->
-		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to covid, cold, and allergy count if user clicks "yes"-->
+		<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes, but not severe.</a> <!--adds 1 to covid, cold, and allergy counts if user clicks "yes"-->
          	<a href="#nine"  onclick="fluAdd();" class="w3-btn w3-black"> Yes, I've been feeling weak.</a> <!--adds 1 to flu count if user clicks "yes"-->
 		<footer class="w3-bottom w3-container w3-flat-carrot"> <!--adds footer to sixth page-->
 			<p>COVID-19 Diagnostic</p>
@@ -378,7 +378,7 @@ img, object{
   var flu = flu_percent;
   var cold = cold_percent;
   var allergy = allergy_percent; */
-	
+// sets percentag values equal to each illness
       var data = [
       {x: "COVID-19", value: covid_count},
       {x: "Flu", value: flu_count},
