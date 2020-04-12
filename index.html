@@ -332,7 +332,6 @@ img, object{
 <!--Calls results function to print out sad and depressed percentages based on user input-->
 <!--<div id="results" class="w3-container">
 	</div> -->
- <script>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -343,7 +342,7 @@ img, object{
 
         var data = google.visualization.arrayToDataTable([
           ['Illness', 'Likelihood'],
-          ['COVID-19',     covid_count],
+          ['COVID-19',     covid_count / (covid_count + flu_count + cold_count + allergy_count)],
           ['Flu',      flu_count],
           ['Cold',  cold_count],
           ['Allergies' , allergy_count],
