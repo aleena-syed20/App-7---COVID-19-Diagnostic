@@ -342,7 +342,7 @@ img, object{
 
         var data = google.visualization.arrayToDataTable([
           ['Illness', 'Likelihood'],
-          ['COVID-19',     covid_count / (covid_count + flu_count + cold_count + allergy_count)],
+          ['COVID-19',     covidAdd()],
           ['Flu',      flu_count],
           ['Cold',  cold_count],
           ['Allergies' , allergy_count],
