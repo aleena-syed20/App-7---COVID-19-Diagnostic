@@ -332,16 +332,16 @@ img, object{
 <!--Calls results function to print out sad and depressed percentages based on user input-->
 <div id="results" class="w3-container">
 	</div> 
-
-<p> Documentation for printing out pie chart below:
+	
+	<p> Documentation of visual display: </p>
 <head>
       <title>JavaScript Pie Chart</title>
       <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script> 
       <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
   </head>
-  <body>
+  <body> 
     <div id="container" style="width: 100%; height: 100%"></div>
-    <script>
+    "<script>
         anychart.onDocumentReady(function() {
 		
 // sets percentage values equal to each illness
@@ -356,7 +356,7 @@ img, object{
   var chart = anychart.pie();
 
   // set the chart title
-  chart.title("Population by Race for the United States: 2010 Census");
+  chart.title("Likelihood of COVID-19, cold, flu, or allergies");
 
   // add the data
   chart.data(data);
@@ -365,7 +365,7 @@ img, object{
   chart.container('container');
   chart.draw();
 
-});
+});"
     </script>
   </body> 
 	</p>
